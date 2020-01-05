@@ -10,6 +10,7 @@ Example pipeline using Vagrant for provisioning a VM running RHEL 8.1 and Ansibl
 - To create a partition, assign it to physical volume, then create LVM with a standard partition XFS mounted on */nginx*
 - To configure Nginx as web server in the secondary interface with Document root */nginx*
 - To activate SELinux and ensure Nginx listen sockets have proper security contexts enabled
+- To create an archive (.xz) from /usr/share/doc/xz and to extract it to */nginx* 
 
 
 ** Under development **
