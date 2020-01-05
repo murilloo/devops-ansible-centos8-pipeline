@@ -6,9 +6,10 @@ Example pipeline using Vagrant for provisioning a VM running RHEL 8.1 and Ansibl
 - Libvirt >= 5.1.0 (https://libvirt.org/sources/)
 
 ## Tasks
-- To properly configure a secondary network interface in the server
-- To configure Nginx as web server with Document root /nginx
+- To properly configure a *secondary* network interface in the server
+- To create a partition, assign it to physical volume, then create LVM with a standard partition XFS mounted on */nginx*
+- To configure Nginx as web server in the secondary interface with Document root */nginx*
 - To activate SELinux and ensure Nginx listen sockets have proper security contexts enabled
-- To create a Physical Volumes, Logical Volumes with a standard partition XFS mounted
+
 
 ** Under development **
