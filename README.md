@@ -8,6 +8,7 @@ Example pipeline using Vagrant for provisioning a VM running CentOS 8 and Ansibl
 ## Tasks
 - To properly configure a *secondary* network interface in the server<br>
     __Please check [this issue](https://github.com/ansible/ansible/pull/62609) from Ansible nmcli module__
+    
 - To create a partition, assign it to physical volume, then create LVM with a standard partition XFS mounted on */nginx*
 - To configure Nginx as web server in the secondary interface with Document root */nginx*
 - To activate SELinux and ensure Nginx listen sockets have proper security contexts enabled
