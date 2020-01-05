@@ -1,5 +1,5 @@
 # devops-ansible-rhel8-pipeline
-Example pipeline using Vagrant for provisioning a VM running RHEL 8.1 and Ansible to execute a list of administrative Ops tasks related
+Example pipeline using Vagrant for provisioning a VM running CentOS 8 and Ansible to execute a list of administrative Ops tasks related
 
 ## Requirements
 - Vagrant >= 2.2.5 (https://www.vagrantup.com/downloads.html)
