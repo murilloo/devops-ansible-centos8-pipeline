@@ -1,4 +1,4 @@
-# devops-ansible-rhel8-pipeline
+# devops-ansible-centos8-pipeline
 Example pipeline using Vagrant for provisioning a VM running CentOS 8 and Ansible to execute a list of administrative Ops tasks related
 
 ## Requirements
