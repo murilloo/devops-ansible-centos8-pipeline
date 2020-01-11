@@ -17,6 +17,6 @@ Example pipeline using Vagrant for provisioning a VM running CentOS 8 and Ansibl
 - To create an archive (.xz) from /usr/share/doc/xz and to extract it to */nginx* 
 
 ## Tasks (Completed)
-- To create a second network interface *System eth1* with its *DNS* set to *1.1.1.1* **(Vagrantfile)**
+- To create a second network interface *System eth1* with its *DNS* set to *1.1.1.1* **(Vagrantfile + Ansible)**
 - To add an additional *IPv4* address to the current *System eth0* interface of provisioned VM **(Ansible)**
 
