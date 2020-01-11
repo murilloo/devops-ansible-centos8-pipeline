@@ -2,7 +2,7 @@
   nmcli:
     conn_name: "System eth0"
     type: ethernet
-    ip4: 192.168.121.8
+    ip4: 192.168.121.7
     gw4: 192.168.121.1
     state: present
     autoconnect: yes
