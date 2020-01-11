@@ -1,12 +1,13 @@
 - name: add secondary IP to the interface
-  command: nmcli con mod "System eth0" +ipv4.address 192.168.121.7
-  register: nmcli_add_ip
+  nmcli:
+    conn_name: "System eth0"
+    type: ethernet
+    ip4: 192.168.121.8
+    gw4: 192.168.121.1
+    state: present
+    autoconnect: yes
 
-- name: show command output
-  debug:
-    var: nmcli_add_ip
-
-- name: apply new DNS server to the secondary network interface
+- name: set new dns server to the secondary network interface
   nmcli:
     conn_name: "System eth1"
     type: ethernet
@@ -14,6 +15,10 @@
     - 1.1.1.1
     state: present
 
-- name: reboot message
+- name: refresh interface eth0
+  command: nmcli c up System\ eth0
+  register: nmcli_refresh
+
+- name: show refresh output
   debug:
-    msg: "** Please restart VM to changes take effect **"
+    var: nmcli_refresh
