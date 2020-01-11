@@ -23,7 +23,7 @@ Example pipeline using Vagrant for provisioning a VM running CentOS 8 and Ansibl
 ipv4.dns:                               1.1.1.1
 IP4.DNS[2]:                             1.1.1.1
 ```
-- To add an additional *IPv4* address to the current *System eth0* interface of provisioned VM **(Ansible)**
+- To assign an additional *IPv4* address to the current *System eth0* interface of provisioned VM **(Ansible)**
 ```
 [vagrant@localhost ~]$ nmcli c s System\ eth0 | grep -i ip4
 IP4.ADDRESS[1]:                         192.168.121.7/32
