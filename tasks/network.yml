@@ -1,8 +1,8 @@
-- name: add secondary interface
-  nmcli:
-    conn_name: my-eth1
-    ifname: eth1
-    type: ethernet
-    ip4: 192.168.121.7/24
-    gw4: 192.168.121.1
-    state: present
+- name: add secondary IP to the interface
+  command: nmcli con mod "System eth0" +ipv4.address 192.168.121.7
+  register: nmcli_add_ip
+
+- name: show command output
+  debug:
+    var: nmcli_add_ip
+
