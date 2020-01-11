@@ -4,10 +4,13 @@ Example pipeline using Vagrant for provisioning a VM running CentOS 8 and Ansibl
 ## Requirements
 - Vagrant >= 2.2.5 (https://www.vagrantup.com/downloads.html)
 - Libvirt >= 5.1.0 (https://libvirt.org/sources/)
+- Python version = 3.7.5
+- Ansible = 2.9.2
 
 ## Tasks
 - To configure an additional IPv4 address to the current eth0 interface<br>
     __Please check [this issue](https://github.com/ansible/ansible/pull/62609) from Ansible nmcli module__
+    
 - To create a partition, assign it to physical volume, then create LVM with a standard partition XFS mounted on */nginx*
 - To configure Nginx as web server in the secondary interface with Document root */nginx*
 - To activate SELinux and ensure Nginx listen sockets have proper security contexts enabled
