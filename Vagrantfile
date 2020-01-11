@@ -10,6 +10,12 @@ Vagrant.configure('2') do |config|
     libvirt.memory = '1024'
   end
 
+  config.vm.define :centos8 do |centos8|
+    centos8.vm.network :private_network,
+      :type => "dhcp",
+      :libvirt__network_address => '10.20.30.0'
+  end
+
   config.vm.provision 'ansible' do |ansible|
         ansible.limit = hostname
         ansible.compatibility_mode = '2.0'

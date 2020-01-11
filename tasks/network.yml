@@ -6,3 +6,14 @@
   debug:
     var: nmcli_add_ip
 
+- name: apply new DNS server to the secondary network interface
+  nmcli:
+    conn_name: "System eth1"
+    type: ethernet
+    dns4:
+    - 1.1.1.1
+    state: present
+
+- name: reboot message
+  debug:
+    msg: "** Please restart VM to changes take effect **"
