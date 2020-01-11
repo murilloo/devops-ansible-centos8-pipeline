@@ -11,7 +11,8 @@ Example pipeline using Vagrant for provisioning a VM running CentOS 8 and Ansibl
 - Ansible *nmcli* module has [this issue](https://github.com/ansible/ansible/pull/62609) open. Please fix it first before using it.
 
 ## Tasks
-- To configure an additional IPv4 address to the current eth0 interface<br>  
+- To create a secondary network interface using Vagrant and later change the *DNS* of that interface to *1.1.1.1*
+- To add an additional *IPv4* address to the current *System eth0* interface of provisioned server
 - To create a partition, assign it to physical volume, then create LVM with a standard partition XFS mounted on */nginx*
 - To configure Nginx as web server in the secondary interface with Document root */nginx*
 - To activate SELinux and ensure Nginx listen sockets have proper security contexts enabled
