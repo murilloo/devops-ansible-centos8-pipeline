@@ -20,6 +20,3 @@ Example pipeline using Vagrant for provisioning a VM running CentOS 8 and Ansibl
 - To create a second network interface *System eth1* with its *DNS* set to *1.1.1.1* **(Vagrantfile)**
 - To add an additional *IPv4* address to the current *System eth0* interface of provisioned VM **(Ansible)**
 
-
-** Under development **
-
