@@ -10,8 +10,7 @@ Example pipeline using Vagrant for provisioning a VM running CentOS 8 and Ansibl
 ## Known Issues
 - Ansible *nmcli* module has [this issue](https://github.com/ansible/ansible/pull/62609) open. Please fix it first before using it.
 
-## Tasks (Pending)
-- To create a partition, assign it to physical volume, then create LVM with a standard partition XFS mounted on */nginx*
+## Tasks 
 - To configure Nginx as web server in the secondary interface with Document root */nginx*
 - To activate SELinux and ensure Nginx listen sockets have proper security contexts enabled
 - To create an archive (.xz) from /usr/share/doc/xz and to extract it to */nginx* 
@@ -29,4 +28,16 @@ IP4.DNS[2]:                             1.1.1.1
 IP4.ADDRESS[1]:                         192.168.121.7/32
 IP4.ADDRESS[2]:                         192.168.121.104/24
 ```
+- To add a new disk with *1GiB*, to create a volume group with *5000Mib* size, then logical volume with *250Mib* with *EXT4* file system and to mount it on */nginx*
+```
+[vagrant@localhost ~]$ sudo pvs
+  PV         VG           Fmt  Attr PSize   PFree  
+  /dev/vdb1  vagrant_demo lvm2 a--  496.00m 244.00m
+  
+[vagrant@localhost ~]$ sudo lvs
+  LV   VG           Attr       LSize   Pool Origin Data%  Meta%  Move Log Cpy%Sync Convert
+  vol1 vagrant_demo -wi-ao---- 252.00m                                                    
 
+[vagrant@localhost ~]$ mount | grep nginx
+/dev/mapper/vagrant_demo-vol1 on /nginx type ext4 (rw,relatime,seclabel)
+```

@@ -18,7 +18,3 @@
 - name: refresh interface eth0
   command: nmcli c up System\ eth0
   register: nmcli_refresh
-
-- name: show refresh output
-  debug:
-    var: nmcli_refresh
