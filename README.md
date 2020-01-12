@@ -11,8 +11,7 @@ Example pipeline using Vagrant for provisioning a VM running CentOS 8 and Ansibl
 - Ansible *nmcli* module has [this issue](https://github.com/ansible/ansible/pull/62609) open. Please fix it first before using it.
 
 ## Tasks 
-4) To configure Nginx as web server in the secondary interface with Document root */nginx*
-5) To activate SELinux and ensure Nginx listen sockets have proper security contexts enabled
+5) 
 6) To create an archive (.xz) from /usr/share/doc/xz and to extract it to */nginx* 
 
 ## Tasks (Completed)
@@ -41,3 +40,5 @@ IP4.ADDRESS[2]:                         192.168.121.104/24
 [vagrant@localhost ~]$ mount | grep nginx
 /dev/mapper/vagrant_demo-vol1 on /nginx type ext4 (rw,relatime,seclabel)
 ```
+
+4) To configure Nginx as web server in the secondary interface with Document root */nginx*. Make sure SELinux is *active* and security contexts are properly configured.
