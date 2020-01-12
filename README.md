@@ -11,7 +11,6 @@ Example pipeline using Vagrant for provisioning a VM running CentOS 8 and Ansibl
 - Ansible *nmcli* module has [this issue](https://github.com/ansible/ansible/pull/62609) open. Please fix it first before using it.
 
 ## Tasks 
-5) 
 6) To create an archive (.xz) from /usr/share/doc/xz and to extract it to */nginx* 
 
 ## Tasks (Completed)
