@@ -11,24 +11,24 @@ Example pipeline using Vagrant for provisioning a VM running CentOS 8 and Ansibl
 - Ansible *nmcli* module has [this issue](https://github.com/ansible/ansible/pull/62609) open. Please fix it first before using it.
 
 ## Tasks 
-- To configure Nginx as web server in the secondary interface with Document root */nginx*
-- To activate SELinux and ensure Nginx listen sockets have proper security contexts enabled
-- To create an archive (.xz) from /usr/share/doc/xz and to extract it to */nginx* 
+4) To configure Nginx as web server in the secondary interface with Document root */nginx*
+5) To activate SELinux and ensure Nginx listen sockets have proper security contexts enabled
+6) To create an archive (.xz) from /usr/share/doc/xz and to extract it to */nginx* 
 
 ## Tasks (Completed)
-- To create a second network interface *System eth1* with its *DNS* set to *1.1.1.1* **(Vagrantfile + Ansible)**
+1) To create a second network interface *System eth1* with its *DNS* set to *1.1.1.1* **(Vagrantfile + Ansible)**
 ```
 [vagrant@localhost ~]$ nmcli c s System\ eth1 | grep 1.1.1.1
 ipv4.dns:                               1.1.1.1
 IP4.DNS[2]:                             1.1.1.1
 ```
-- To assign an additional *IPv4* address to the current *System eth0* interface of provisioned VM **(Ansible)**
+2) To assign an additional *IPv4* address to the current *System eth0* interface of provisioned VM **(Ansible)**
 ```
 [vagrant@localhost ~]$ nmcli c s System\ eth0 | grep -i ip4
 IP4.ADDRESS[1]:                         192.168.121.7/32
 IP4.ADDRESS[2]:                         192.168.121.104/24
 ```
-- To add a new disk with *1GiB*, to create a volume group with *5000Mib* size, then logical volume with *250Mib* with *EXT4* file system and to mount it on */nginx*
+3) To add a new disk with *1GiB*, to create a volume group with *5000Mib* size, then logical volume with *250Mib* with *EXT4* file system and to mount it on */nginx*
 ```
 [vagrant@localhost ~]$ sudo pvs
   PV         VG           Fmt  Attr PSize   PFree  
