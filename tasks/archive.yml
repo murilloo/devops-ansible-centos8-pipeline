@@ -1,0 +1,15 @@
+- name: compress directory /usr/share/doc/xz
+  archive:
+    path: /usr/share/doc/xz
+    dest: /tmp/xz.tgz
+
+- name: extract compressed file to /nginx
+  unarchive:
+    src: /tmp/xz.tgz
+    dest: /nginx
+    remote_src: yes
+
+- name: clean up
+  file:
+    path: /tmp/xz.tgz
+    state: absent
