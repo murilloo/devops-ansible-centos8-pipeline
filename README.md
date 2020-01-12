@@ -10,10 +10,7 @@ Example pipeline using Vagrant for provisioning a VM running CentOS 8 and Ansibl
 ## Known Issues
 - Ansible *nmcli* module has [this issue](https://github.com/ansible/ansible/pull/62609) open. Please fix it first before using it.
 
-## Tasks 
-6) To create an archive (.xz) from /usr/share/doc/xz and to extract it to */nginx* 
-
-## Tasks (Completed)
+## Tasks
 1) To create a second network interface *System eth1* with its *DNS* set to *1.1.1.1* **(Vagrantfile + Ansible)**
 ```
 [vagrant@localhost ~]$ nmcli c s System\ eth1 | grep 1.1.1.1
@@ -41,3 +38,35 @@ IP4.ADDRESS[2]:                         192.168.121.104/24
 ```
 
 4) To configure Nginx as web server in the secondary interface with Document root */nginx*. Make sure SELinux is *active* and security contexts are properly configured.
+```
+[vagrant@localhost ~]$ getenforce
+Enforcing
+
+[vagrant@localhost /]$ ls -laZ | grep nginx
+drwxr-xr-x.   3 nginx   nginx   system_u:object_r:httpd_sys_rw_content_t:s0       1024 Jan 12 14:05 nginx
+[vagrant@localhost /]$ 
+
+[vagrant@localhost ~]$ curl -v http://192.168.121.7:8080/
+*   Trying 192.168.121.7...
+* TCP_NODELAY set
+* Connected to 192.168.121.7 (192.168.121.7) port 8080 (#0)
+> GET / HTTP/1.1
+> Host: 192.168.121.7:8080
+> User-Agent: curl/7.61.1
+> Accept: */*
+> 
+< HTTP/1.1 200 OK
+< Server: nginx/1.14.1
+< Date: Sun, 12 Jan 2020 14:06:45 GMT
+< Content-Type: text/html
+< Transfer-Encoding: chunked
+< Connection: keep-alive
+< 
+<html>
+<head><title>Index of /</title></head>
+...
+</html>
+* Connection #0 to host 192.168.121.7 left intact
+```
+
+5) To create an archive (.xz) from /usr/share/doc/xz and to extract it to */nginx* 
