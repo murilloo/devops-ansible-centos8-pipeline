@@ -20,11 +20,11 @@
   lvol:
     vg: vagrant_demo
     lv: vol1
-    size: 250
+    size: '250'
 
 - name: create a ext4 filesystem on the logical volume
   filesystem:
-    fstype: ext4
+    fstype: 'ext4'
     dev: /dev/mapper/vagrant_demo-vol1
 
 - name: ensure nginx folder exists
@@ -40,4 +40,4 @@
     path: /nginx
     src: /dev/mapper/vagrant_demo-vol1
     state: mounted
-    fstype: ext4
+    fstype: 'ext4'
