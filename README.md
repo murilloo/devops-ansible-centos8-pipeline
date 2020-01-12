@@ -11,7 +11,7 @@ Example pipeline using Vagrant for provisioning a VM running CentOS 8 and Ansibl
 - Ansible *nmcli* module has [this issue](https://github.com/ansible/ansible/pull/62609) open. Please fix it first before using it.
 
 ## Tasks (Pending)
-- To create a partition, assign it to physical volume, then create LVM with a standard partition XFS mounted on */nginx*
+- To add a new disk with *1GiB*, to create a volume group and a logical volume on top of it with *EXT4* file system and to mount it on */nginx*
 - To configure Nginx as web server in the secondary interface with Document root */nginx*
 - To activate SELinux and ensure Nginx listen sockets have proper security contexts enabled
 - To create an archive (.xz) from /usr/share/doc/xz and to extract it to */nginx* 

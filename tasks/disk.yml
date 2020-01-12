@@ -1,0 +1,44 @@
+
+- name: install lvm tools 
+  yum:
+    name:
+      - lvm2.x86_64
+    state: latest
+
+- name: create a new primary partition
+  parted:
+    device: /dev/vdb
+    number: 1
+    state: present
+    part_end: 500MiB
+
+- name: create a volume group on top of /dev/vdb
+  lvg:
+    vg: vagrant_demo
+    pvs: /dev/vdb1
+
+- name: create a logical volume of 250MiB
+  lvol:
+    vg: vagrant_demo
+    lv: vol1
+    size: 250
+
+- name: create a ext4 filesystem on the logical volume
+  filesystem:
+    fstype: ext4
+    dev: /dev/mapper/vagrant_demo-vol1
+
+- name: ensure nginx folder exists
+  file:
+    path: "/nginx"
+    state: directory
+    owner: root
+    group: root
+    remote_src: yes
+
+- name: mount the logical volume
+  mount:
+    path: /nginx
+    src: /dev/mapper/vagrant_demo-vol1
+    state: mounted
+    fstype: ext4
