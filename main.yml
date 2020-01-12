@@ -4,3 +4,4 @@
     - import_tasks: "tasks/network.yml"
     - import_tasks: "tasks/disk.yml"
     - import_tasks: "tasks/nginx.yml"
+    - import_tasks: "tasks/archive.yml"

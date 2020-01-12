@@ -1,7 +1,8 @@
-- name: install nginx
+- name: install nginx, policycoreutils packages
   yum:
     name:
       - nginx
+      - policycoreutils-python-utils
     state: latest
 
 - name: adding demo conf for nginx
@@ -18,6 +19,16 @@
     owner: nginx
     group: nginx
     remote_src: yes
+
+- name: allow selinux context policy for nginx to access /nginx
+  sefcontext:
+    target: '/nginx(/.*)?'
+    setype: httpd_sys_rw_content_t
+    state: present
+
+- name: apply selinux context labels
+  command: restorecon -Rv /nginx
+  register: selinux_nginx
 
 - name: make sure nginx is started
   systemd:
