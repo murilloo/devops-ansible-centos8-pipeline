@@ -30,13 +30,14 @@ IP4.ADDRESS[2]:                         192.168.121.104/24
 ```
 - To add a new disk with *1GiB*, to create a volume group with *5000Mib* size, then logical volume with *250Mib* with *EXT4* file system and to mount it on */nginx*
 ```
-[root@localhost ~]# pvs
+[vagrant@localhost ~]$ sudo pvs
   PV         VG           Fmt  Attr PSize   PFree  
   /dev/vdb1  vagrant_demo lvm2 a--  496.00m 244.00m
-[root@localhost ~]# lvs
+  
+[vagrant@localhost ~]$ sudo lvs
   LV   VG           Attr       LSize   Pool Origin Data%  Meta%  Move Log Cpy%Sync Convert
   vol1 vagrant_demo -wi-ao---- 252.00m                                                    
-[root@localhost ~]# mount | grep nginx
+
+[vagrant@localhost ~]$ mount | grep nginx
 /dev/mapper/vagrant_demo-vol1 on /nginx type ext4 (rw,relatime,seclabel)
-[root@localhost ~]# 
 ```
