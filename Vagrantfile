@@ -8,6 +8,7 @@ Vagrant.configure('2') do |config|
     libvirt.driver = 'kvm'
     libvirt.cpus = 2
     libvirt.memory = '1024'
+    libvirt.storage :file, :size => '1G'
   end
 
   config.vm.define :centos8 do |centos8|
