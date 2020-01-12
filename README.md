@@ -47,18 +47,29 @@ Enforcing
 drwxr-xr-x.   3 nginx   nginx   system_u:object_r:httpd_sys_rw_content_t:s0       1024 Jan 12 14:05 nginx
 [vagrant@localhost /]$ 
 
-[vagrant@localhost ~]$ curl -v http://192.168.121.7:8080/
-*   Trying 192.168.121.7...
+[vagrant@localhost ~]$ sudo cat /etc/nginx/conf.d/demo.conf
+server {
+  listen 10.20.30.117:8080;
+  server_name 10.20.30.117;
+  root /nginx;
+  location / {
+      autoindex on;
+      autoindex_exact_size off;
+  }
+}
+
+[vagrant@localhost ~]$ curl -v http://10.20.30.117:8080/
+*   Trying 10.20.30.117...
 * TCP_NODELAY set
-* Connected to 192.168.121.7 (192.168.121.7) port 8080 (#0)
+* Connected to 10.20.30.117 (10.20.30.117) port 8080 (#0)
 > GET / HTTP/1.1
-> Host: 192.168.121.7:8080
+> Host: 10.20.30.117:8080
 > User-Agent: curl/7.61.1
 > Accept: */*
 > 
 < HTTP/1.1 200 OK
 < Server: nginx/1.14.1
-< Date: Sun, 12 Jan 2020 14:06:45 GMT
+< Date: Sun, 12 Jan 2020 16:31:55 GMT
 < Content-Type: text/html
 < Transfer-Encoding: chunked
 < Connection: keep-alive
@@ -67,7 +78,6 @@ drwxr-xr-x.   3 nginx   nginx   system_u:object_r:httpd_sys_rw_content_t:s0     
 <head><title>Index of /</title></head>
 ...
 </html>
-* Connection #0 to host 192.168.121.7 left intact
 ```
 
 #### 5) To create an archive (.xz) from /usr/share/doc/xz and to extract it to */nginx* 
