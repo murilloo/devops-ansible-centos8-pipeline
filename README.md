@@ -11,19 +11,20 @@ Example pipeline using Vagrant for provisioning a VM running CentOS 8 and Ansibl
 - Ansible *nmcli* module has [this issue](https://github.com/ansible/ansible/pull/62609) open. Please fix it first before using it.
 
 ## Tasks
-1) To create a second network interface *System eth1* with its *DNS* set to *1.1.1.1* **(Vagrantfile + Ansible)**
+
+#### 1) To create a second network interface *System eth1* with its *DNS* set to *1.1.1.1* 
 ```
 [vagrant@localhost ~]$ nmcli c s System\ eth1 | grep 1.1.1.1
 ipv4.dns:                               1.1.1.1
 IP4.DNS[2]:                             1.1.1.1
 ```
-2) To assign an additional *IPv4* address to the current *System eth0* interface of provisioned VM **(Ansible)**
+#### 2) To assign an additional *IPv4* address to the current *System eth0* interface of provisioned VM
 ```
 [vagrant@localhost ~]$ nmcli c s System\ eth0 | grep -i ip4
 IP4.ADDRESS[1]:                         192.168.121.7/32
 IP4.ADDRESS[2]:                         192.168.121.104/24
 ```
-3) To add a new disk with *1GiB*, to create a volume group with *5000Mib* size, then logical volume with *250Mib* with *EXT4* file system and to mount it on */nginx*
+#### 3) To add a new disk with *1GiB*, to create a volume group with *5000Mib* size, then logical volume with *250Mib* with *EXT4* file system and to mount it on */nginx*
 ```
 [vagrant@localhost ~]$ sudo pvs
   PV         VG           Fmt  Attr PSize   PFree  
@@ -37,7 +38,7 @@ IP4.ADDRESS[2]:                         192.168.121.104/24
 /dev/mapper/vagrant_demo-vol1 on /nginx type ext4 (rw,relatime,seclabel)
 ```
 
-4) To configure Nginx as web server in the secondary interface with Document root */nginx*. Make sure SELinux is *active* and security contexts are properly configured.
+#### 4) To configure Nginx as web server in the secondary interface with Document root */nginx*. Make sure SELinux is *active* and security contexts are properly configured.
 ```
 [vagrant@localhost ~]$ getenforce
 Enforcing
@@ -69,4 +70,4 @@ drwxr-xr-x.   3 nginx   nginx   system_u:object_r:httpd_sys_rw_content_t:s0     
 * Connection #0 to host 192.168.121.7 left intact
 ```
 
-5) To create an archive (.xz) from /usr/share/doc/xz and to extract it to */nginx* 
+#### 5) To create an archive (.xz) from /usr/share/doc/xz and to extract it to */nginx* 
