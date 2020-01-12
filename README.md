@@ -33,9 +33,11 @@ IP4.ADDRESS[2]:                         192.168.121.104/24
 [root@localhost ~]# pvs
   PV         VG           Fmt  Attr PSize   PFree  
   /dev/vdb1  vagrant_demo lvm2 a--  496.00m 244.00m
+  
 [root@localhost ~]# lvs
   LV   VG           Attr       LSize   Pool Origin Data%  Meta%  Move Log Cpy%Sync Convert
   vol1 vagrant_demo -wi-ao---- 252.00m                                                    
+
 [root@localhost ~]# mount | grep nginx
 /dev/mapper/vagrant_demo-vol1 on /nginx type ext4 (rw,relatime,seclabel)
 [root@localhost ~]# 
