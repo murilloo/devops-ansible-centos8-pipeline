@@ -71,3 +71,24 @@ drwxr-xr-x.   3 nginx   nginx   system_u:object_r:httpd_sys_rw_content_t:s0     
 ```
 
 #### 5) To create an archive (.xz) from /usr/share/doc/xz and to extract it to */nginx* 
+```
+[vagrant@localhost nginx]$ pwd
+/nginx
+
+[vagrant@localhost nginx]$ ls -1
+xz
+
+[vagrant@localhost nginx]$ ls -lrt *
+total 143
+-rw-r--r--. 1 root root 43305 Apr 29  2018 xz-file-format.txt
+-rw-r--r--. 1 root root  4040 Apr 29  2018 TODO
+-rw-r--r--. 1 root root  2487 Apr 29  2018 THANKS
+-rw-r--r--. 1 root root 13526 Apr 29  2018 README
+-rw-r--r--. 1 root root  5689 Apr 29  2018 lzma-file-format.txt
+-rw-r--r--. 1 root root  7427 Apr 29  2018 history.txt
+-rw-r--r--. 1 root root  9411 Apr 29  2018 faq.txt
+-rw-r--r--. 1 root root 18092 Apr 29  2018 COPYING.GPLv2
+-rw-r--r--. 1 root root  2775 Apr 29  2018 COPYING
+-rw-r--r--. 1 root root  1043 Apr 29  2018 AUTHORS
+-rw-r--r--. 1 root root 21413 Apr 29  2018 NEWS
+```
